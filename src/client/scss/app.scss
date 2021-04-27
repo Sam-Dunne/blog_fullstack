@@ -1,0 +1,17 @@
+$theme-colors: (
+    'primary': #0091ea,//Covalence Blue!  :D
+    'secondary': #fff0bf,
+    "info": #80b1cf
+);
+
+body {
+    background-color: darkgrey !important;
+}
+
+
+// #blog-card {
+//     height: 26vh !important;
+//     // max-height: fit-content !important;  
+// }
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
