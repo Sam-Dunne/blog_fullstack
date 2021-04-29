@@ -2,10 +2,11 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { ITagsTable } from '../../typings/interfaces'
+import Swal from 'sweetalert2';
+
 
 
 const MakeBlog = (props: MakeChirpProps) => {
-    const Swal = require('sweetalert2');
     const history = useHistory();
     // control state of tag input
     const [tagName, setTagName] = useState<ITagsTable[]>([]);

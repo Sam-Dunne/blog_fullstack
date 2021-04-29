@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
-import type { IAllBlogs } from '../../typings/interfaces';
+import Swal from 'sweetalert2';
+
 
 
 
 const Edit = (props: DetailsProps) => {
 	const history = useHistory();
-	const Swal = require('sweetalert2');
+	
 	const { id } = useParams<{ id: string }>();
 
 
@@ -26,15 +27,7 @@ const Edit = (props: DetailsProps) => {
 
 	const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-		if (newBlog.length === 0 || newBlog.length > 250 ) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Whoopsies...',
-                text: 'Empty Required Field or Character MAX exceeded!',
-				footer: 'Max Blog length 250 characters'
-            })
-            return;
-        }
+		
 		// console.log({ resMessage: `deleted chirp id: ${id}` })  //check against postman res
 		fetch(`/api/blogs/${id}`, {
 			method: 'DELETE',
@@ -50,6 +43,15 @@ const Edit = (props: DetailsProps) => {
 
 	const handleEdit = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
+		if (newBlog.length === 0 || newBlog.length > 250 ) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Whoopsies...',
+                text: 'Empty Required Field or Character MAX exceeded!',
+				footer: 'Max Blog length 250 characters'
+            })
+            return;
+        }
 		console.log({
 			content: newBlog
 		});

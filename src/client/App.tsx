@@ -30,11 +30,11 @@ const App = (props: AppProps) => {
 					<Route exact path="/add/">
 						<MakeBlog />
 					</Route>
-					<Elements stripe={stripe}>
-						<Route exact path="/donate/">
+					<Route exact path="/donate/">
+						<Elements stripe={stripe}>
 							<Donate />
-						</Route>
-					</Elements>
+						</Elements>
+					</Route>
 
 				</Switch>
 			</main>
