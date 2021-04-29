@@ -21,7 +21,7 @@ const Home = (props: HomeProps) => {
     return (
         <section className="row d-flex justify-content-around align-items-center mx-2">
             {blogs?.map(blog => (
-                <div key={`blogs-${blog.id}`} id="blog-card" className="card bg-primary col-xs-6 col-sm-8 col-md-5 col-lg-3 rounded shadow-lg mx-1 my-3 p-2">
+                <div key={`blogs-${blog.id}`} id="blog-card" className="card bg-info col-xs-6 col-sm-8 col-md-5 col-lg-3 rounded shadow-lg mx-1 my-3 p-2">
                     <div className="card card-body bg-light px-0 py-1">
                         <h5 className="card-title text-center mb-3 mt-2">{blog.title}</h5>
                         <h6 className="card-title ml-2 mt-4">{`By: ${blog.name}`}</h6>

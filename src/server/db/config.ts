@@ -1,6 +1,6 @@
 import * as mysql from 'mysql';
 import type { MySQLResponse } from '../../typings/interfaces';
-import config from '../config/index'
+import config from '../config/secrets/sqlConfig'
 
 const pool = mysql.createPool(config.sqlConfig);
 

@@ -1,18 +1,22 @@
 import * as React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import Navbar from './components/Navbar';
 import Details from './views/Details';
 import Edit from './views/Edit';
 import Home from './views/Home';
 import MakeBlog from './views/MakeBlog';
+import Donate from './views/Donate';
 
+const stripe = loadStripe('pk_test_51IlEIPKUQjcfOGB9gbIe2Jz4U9alt6JgOPXG1GTFBUlKTYn5CICB1WOUQ8H2uqQKgfjFlp7UlHhNWT0dBX78ZJ1o00ed6JdgZw');
 
 /* ***Update CLIENT_ROUTES in SERVER when paths are added*** */
 const App = (props: AppProps) => {
 	return (
 		<BrowserRouter>
 			< Navbar />
-			<main className="container justify-content-center bg-secondary col-sm-11 col-md-11 col-lg-11 shadow rounded my-5 p-2">
+			<main className="container justify-content-center align-items-center bg-secondary col-sm-11 col-md-11 col-lg-11 shadow rounded my-5 p-2">
 				<Switch>
 					<Route exact path="/">
 						<Home />
@@ -26,14 +30,19 @@ const App = (props: AppProps) => {
 					<Route exact path="/add/">
 						<MakeBlog />
 					</Route>
-				
+					<Elements stripe={stripe}>
+						<Route exact path="/donate/">
+							<Donate />
+						</Route>
+					</Elements>
+
 				</Switch>
 			</main>
 		</BrowserRouter>
 	)
 };
 
-interface AppProps {}
+interface AppProps { }
 
 
 export default App;

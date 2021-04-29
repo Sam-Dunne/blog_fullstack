@@ -13,6 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.4.0",
+    "@stripe/stripe-js": "^1.14.0",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.11",
     "@types/morgan": "^1.9.2",
@@ -32,6 +34,7 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "sass-loader": "^11.0.1",
+    "stripe": "^8.145.0",
     "style-loader": "^2.0.0",
     "sweetalert2": "^10.16.6",
     "ts-loader": "^8.0.17",
