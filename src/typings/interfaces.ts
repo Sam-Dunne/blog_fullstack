@@ -44,4 +44,6 @@ export interface IAllBlogs {
 export interface MySQLResponse {
     affectedRows: number;
     insertId: number;
+    sqlMessage?: string;
+    sql?: string;
 }

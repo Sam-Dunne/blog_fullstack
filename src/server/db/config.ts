@@ -7,7 +7,9 @@ const pool = mysql.createPool(config.sqlConfig);
 // MySQLResponse set as type for all non-GET queries
 export const Query = <T = MySQLResponse>(query: string, values?: any) => {
     return new Promise<T>((resolve, reject) => {
-        pool.query(query, values, (err, results) => {
+        const sqlString = mysql.format(query, values);
+        console.log({ sqlString })
+        pool.query(sqlString, (err, results) => {
             if (err) {
                 reject(err);
             } else {

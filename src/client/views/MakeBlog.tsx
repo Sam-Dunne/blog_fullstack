@@ -12,7 +12,7 @@ const MakeBlog = (props: MakeChirpProps) => {
     const [tagName, setTagName] = useState<ITagsTable[]>([]);
     // control state of select element tagid
     const [selectedTagID, setSelectedTagID] = useState('0');
-
+    const handleSetSelectedTagID = (e: React.ChangeEvent<HTMLSelectElement>) => setSelectedTagID(e.target.value);
     // controls state of title input
     const [title, setTitle] = useState('');
     const handleSetTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(e.target.value)
@@ -71,9 +71,9 @@ const MakeBlog = (props: MakeChirpProps) => {
                 })
             })
             .then(res => res.json())
-        .then((serverRes: any) => {
-            history.push('/details/' + temp);  // loads Details view
-        });
+            .then((serverRes: any) => {
+                history.push('/details/' + temp);  // loads Details view
+            });
     };
 
 
@@ -82,10 +82,10 @@ const MakeBlog = (props: MakeChirpProps) => {
         <section className="col-md-8 justify-content-center align-items-center mx-auto">
             <form
                 id="chirp-form"
-                className="form-group bg-info shadow rounded mt-2 p-3">
+                className="form-group bg-info shadow rounded mt-3 p-3">
                 <div className="mb-3">
                     <select value={selectedTagID}
-                        onChange={e => setSelectedTagID(e.target.value)}
+                        onChange={handleSetSelectedTagID}
                         className="form-control">
                         <option value="0">Select Tag</option>
                         {tagName.map(tag => (
@@ -105,7 +105,7 @@ const MakeBlog = (props: MakeChirpProps) => {
                 <div className="mb-3">
                     <textarea
                         className="form-control mb-2"
-                        rows={15}
+                        rows={11}
                         id="blog-input"
                         placeholder="Place your entry here"
                         value={newBlog}

@@ -6,7 +6,7 @@ const all = () => Query<(IAuthorsTable & IBlogsTable)[]>
 const one = (id: number) => Query<(IAuthorsTable & IBlogsTable)[]>
     ('SELECT * FROM authors JOIN blogs on authors.id = blogs.authorid WHERE blogs.id = ?', [id]);
 const nuke = (id: number) => Query('DELETE FROM blogs WHERE id = ?', [id]);
-const insert = (newBlog: { title:string, content: string }) => Query('INSERT INTO blogs SET ?', [newBlog]);
+const insert = ( newBlog: IBlogsTable ) => Query('INSERT INTO blogs SET ?', [newBlog]);
 const update = (updatedBlog: { authorid?: number, content?: string }, id: number) =>
     Query('UPDATE blogs SET ? WHERE id = ?', [updatedBlog, id]);
 

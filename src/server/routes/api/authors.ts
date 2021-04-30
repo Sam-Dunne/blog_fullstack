@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
         res.status(500).json({ msg: 'goof', error: error.message });
     };
 })
+
 router.post('/author', async (req, res) => {
     const newAuthor = req.body;
     try {

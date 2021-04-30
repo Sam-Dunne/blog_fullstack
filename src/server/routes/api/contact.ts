@@ -3,7 +3,7 @@ import * as Mailgun from 'mailgun.js';
 import * as FormData from 'form-data';
 import MailGun from 'mailgun.js';
 import config from '../../config/secrets/mailgun';
-
+console.log(config)
 const mailgun = new(<typeof MailGun>(<any>Mailgun))(<any>FormData).client({
     username: 'api',
     key: config.mailgun.apiKey
@@ -22,7 +22,7 @@ router.post('/', async (req,res) => {
         })
         res.json({result, newEmail})
     } catch (error) {
-        console.log(console.error);
+        console.log(error.message);
         res.status(500).json({ message: 'goof'})
     }
 })

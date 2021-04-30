@@ -20,7 +20,6 @@ const Edit = (props: DetailsProps) => {
 		fetch(`/api/blogs/${id}`)
 			.then(res => res.json())
 			.then(blog => {
-				// setUserName(chirp.name);
 				setNewBlog(blog.content);
 			})
 	}, [id])
@@ -28,7 +27,7 @@ const Edit = (props: DetailsProps) => {
 	const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
 		
-		// console.log({ resMessage: `deleted chirp id: ${id}` })  //check against postman res
+		// console.log({ resMessage: `deleted blog id: ${id}` })  //check against postman res
 		fetch(`/api/blogs/${id}`, {
 			method: 'DELETE',
 			headers: { 'Content-Type': 'application/json' },
@@ -63,7 +62,7 @@ const Edit = (props: DetailsProps) => {
 			.then(res => res.json())
 			.then(serverRes => {
 				console.log(serverRes);
-				history.push('/');
+				history.push('/details/' + id);
 			})
 	}
 
